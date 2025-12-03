@@ -9,8 +9,7 @@ import time
 # Fixture for setting up and tearing down the driver
 @pytest.fixture
 def setup_teardown():
-    service = Service(r"F:\chromedriver-win32\chromedriver2\chromedriver.exe")
-    driver = webdriver.Chrome(service = service)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     yield driver
     driver.quit()
 
